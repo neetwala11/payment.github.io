@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt Detail</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Anjuman Chanda Collection</h1>
+        </div>
+    </header>
+
+    <section class="receipt-detail">
+        <div class="container">
+            <h2>Receipt Detail</h2>
+            <div class="receipt-info">
+                <p><strong>Receipt ID:</strong> <span id="receipt-id"></span></p>
+                <p><strong>Name:</strong> <span id="name"></span></p>
+                <p><strong>Phone Number:</strong> <span id="phone"></span></p>
+                <p><strong>Email:</strong> <span id="email"></span></p>
+                <p><strong>Amount:</strong> <span id="amount"></span></p>
+                <p><strong>Address:</strong> <span id="address"></span></p>
+            </div>
+            <button onclick="printReceipt()">Print</button>
+        </div>
+        <div class="watermark">AGIM</div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Anjuman Chanda Collection. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Populate receipt detail
+document.addEventListener('DOMContentLoaded', function() {
+    const receiptIdElement = document.getElementById('receipt-id');
+    const nameElement = document.getElementById('name');
+    const phoneElement = document.getElementById('phone');
+    const emailElement = document.getElementById('email');
+    const amountElement = document.getElementById('amount');
+    const addressElement = document.getElementById('address');
+
+    receiptIdElement.textContent = localStorage.getItem('receiptId');
+    nameElement.textContent = localStorage.getItem('name');
+    phoneElement.textContent = localStorage.getItem('phone');
+    emailElement.textContent = localStorage.getItem('email');
+    amountElement.textContent = localStorage.getItem('amount');
+    addressElement.textContent = localStorage.getItem('address');
+});
+
+// Print receipt
+function printReceipt() {
+    window.print();
+}
+    </script>
+</body>
+</html>
